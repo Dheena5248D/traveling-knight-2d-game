@@ -2,8 +2,7 @@
 it 2d platformer action adventure game
 
 This is the first project I made in Godot game engine this project is a learning project
-
-![Screenshot 2025-02-21 203538.png](attachment:dfe89df0-edf1-4b55-a85f-da540c907901:Screenshot_2025-02-21_203538.png)
+![Screenshot 2025-02-21 203538](https://github.com/user-attachments/assets/36b44d20-e25f-4698-8cdc-57fc8c8ccaf0)
 
 # How to run this project?
 
