@@ -1,0 +1,14 @@
+Label
+CanvasLayer
+Timer
+CollisionShape2D
+RayCast2D
+AnimatedSprite2D
+CollisionPolygon2D
+AnimationPlayer
+Node2D
+AudioStreamPlayer2D
+Area2D
+Sprite2D
+Node
+AnimationTree

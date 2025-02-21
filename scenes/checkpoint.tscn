@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://cdjdxtw6d5lqb"]
+
+[ext_resource type="Texture2D" uid="uid://bp53204ycver1" path="res://assets/sprites/traps/Trap/Moving Platfrom_H.png" id="1_0jbw4"]
+[ext_resource type="Script" path="res://checkpoint.gd" id="1_b00j6"]
+[ext_resource type="Texture2D" uid="uid://bxh1n8axei0qn" path="res://assets/sprites/traps/Trap/checkpoint.png" id="3_px4br"]
+[ext_resource type="AudioStream" uid="uid://duj241ysnudr3" path="res://assets/sounds/power_up.wav" id="4_b5vj7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3y1x"]
+size = Vector2(29, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c1ecg"]
+atlas = ExtResource("1_0jbw4")
+region = Rect2(0, 0, 32, 11)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rej2"]
+atlas = ExtResource("3_px4br")
+region = Rect2(0, 0, 32, 11)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kffsn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c1ecg")
+}],
+"loop": true,
+"name": &"checkpoint_reached",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rej2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="checkpoint" type="Area2D"]
+collision_layer = 3
+collision_mask = 15
+script = ExtResource("1_b00j6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_a3y1x")
+debug_color = Color(0.870828, 0.000490164, 0.847909, 0.42)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kffsn")
+animation = &"checkpoint_reached"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_b5vj7")
+bus = &"sfx"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

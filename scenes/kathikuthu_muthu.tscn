@@ -1,0 +1,165 @@
+[gd_scene load_steps=21 format=3 uid="uid://b6ir1n77t2r53"]
+
+[ext_resource type="Script" path="res://scenes/kathikuthu_muthu.gd" id="1_7bs48"]
+[ext_resource type="Texture2D" uid="uid://dt5240xjv1qeb" path="res://assets/sprites/NightBorne.png" id="1_e8kv8"]
+[ext_resource type="PackedScene" uid="uid://cdhcrp1lhpucp" path="res://scenes/killzone.tscn" id="2_20nlk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfq2a"]
+atlas = ExtResource("1_e8kv8")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6bc5"]
+atlas = ExtResource("1_e8kv8")
+region = Rect2(320, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6412p"]
+atlas = ExtResource("1_e8kv8")
+region = Rect2(400, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7w8na"]
+atlas = ExtResource("1_e8kv8")
+region = Rect2(0, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2exv"]
+atlas = ExtResource("1_e8kv8")
+region = Rect2(80, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6u1vl"]
+atlas = ExtResource("1_e8kv8")
+region = Rect2(160, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjdrv"]
+atlas = ExtResource("1_e8kv8")
+region = Rect2(240, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gr23r"]
+atlas = ExtResource("1_e8kv8")
+region = Rect2(320, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0p3s"]
+atlas = ExtResource("1_e8kv8")
+region = Rect2(400, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0a0y"]
+atlas = ExtResource("1_e8kv8")
+region = Rect2(0, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugu0r"]
+atlas = ExtResource("1_e8kv8")
+region = Rect2(80, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lwe5"]
+atlas = ExtResource("1_e8kv8")
+region = Rect2(560, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vjlo"]
+atlas = ExtResource("1_e8kv8")
+region = Rect2(640, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whkjg"]
+atlas = ExtResource("1_e8kv8")
+region = Rect2(720, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_68hpt"]
+atlas = ExtResource("1_e8kv8")
+region = Rect2(800, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jl50o"]
+atlas = ExtResource("1_e8kv8")
+region = Rect2(880, 160, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ykkos"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfq2a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6bc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6412p")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7w8na")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2exv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6u1vl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjdrv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gr23r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0p3s")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0a0y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugu0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lwe5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vjlo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whkjg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_68hpt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jl50o")
+}],
+"loop": false,
+"name": &"slash",
+"speed": 18.0
+}]
+
+[node name="kathikuthuMuthu" type="Node2D"]
+script = ExtResource("1_7bs48")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, 0)
+sprite_frames = SubResource("SpriteFrames_ykkos")
+animation = &"slash"
+frame = 6
+frame_progress = 0.210659
+flip_h = true
+
+[node name="killzone" parent="." instance=ExtResource("2_20nlk")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="killzone"]
+position = Vector2(-27.2491, 6.42982)
+polygon = PackedVector2Array(34.2491, 7.57018, 33.2491, 17.5702, 33.2491, 20.5702, 15.2491, 22.5702, 8.24906, 20.5702, -0.750938, 14.5702, -4.75094, 4.57018, -4.75094, -3.42982, -4.75094, -7.42982, 2.24906, -6.42982, 5.24906, 0.570175, 7.24906, 5.57018, 19.2491, 9.57018)
+disabled = true
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-3, 18)
+scale = Vector2(1, 5.28)
+target_position = Vector2(-53, 0)
+collision_mask = 3
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://nbleu0l2nsr5"]
+
+[ext_resource type="Texture2D" uid="uid://c080uej0l4erx" path="res://assets/sprites/traps/Trap/Trap_Spike_Run.png" id="1_jupty"]
+[ext_resource type="PackedScene" uid="uid://cdhcrp1lhpucp" path="res://scenes/killzone.tscn" id="2_grhx7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6dgpg"]
+atlas = ExtResource("1_jupty")
+region = Rect2(0, 0, 32, 35)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xyg72"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6dgpg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qnet"]
+size = Vector2(6.97828, 5.67746)
+
+[node name="3spiketrap" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xyg72")
+frame_progress = 0.276872
+
+[node name="killzone" parent="." instance=ExtResource("2_grhx7")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(-9.68378, 4.4127)
+shape = SubResource("RectangleShape2D_3qnet")
+
+[node name="killzone3" parent="." instance=ExtResource("2_grhx7")]
+scale = Vector2(-1.04002, 1.1406)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone3"]
+position = Vector2(-9.68378, 4.4127)
+shape = SubResource("RectangleShape2D_3qnet")
+
+[node name="killzone2" parent="." instance=ExtResource("2_grhx7")]
+scale = Vector2(-0.192526, -1.18287)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone2"]
+position = Vector2(-0.0168533, 3.80431)
+rotation = -3.14159
+scale = Vector2(4.46111, -1.34015)
+shape = SubResource("RectangleShape2D_3qnet")

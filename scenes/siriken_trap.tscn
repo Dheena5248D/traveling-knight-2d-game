@@ -1,0 +1,83 @@
+[gd_scene load_steps=13 format=3 uid="uid://g6di4apgw8ve"]
+
+[ext_resource type="Texture2D" uid="uid://cwusepvixy4lk" path="res://assets/sprites/traps/Trap/Suriken.png" id="1_1ne2g"]
+[ext_resource type="PackedScene" uid="uid://cdhcrp1lhpucp" path="res://scenes/killzone.tscn" id="2_2rgji"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t73nq"]
+atlas = ExtResource("1_1ne2g")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fo8pb"]
+atlas = ExtResource("1_1ne2g")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lh5gt"]
+atlas = ExtResource("1_1ne2g")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tk2cs"]
+atlas = ExtResource("1_1ne2g")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dl3wh"]
+atlas = ExtResource("1_1ne2g")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vx0m"]
+atlas = ExtResource("1_1ne2g")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4lfk"]
+atlas = ExtResource("1_1ne2g")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adfmp"]
+atlas = ExtResource("1_1ne2g")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8t00a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t73nq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fo8pb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lh5gt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tk2cs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dl3wh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vx0m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j4lfk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adfmp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vkn3v"]
+radius = 13.0
+
+[node name="trap" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8t00a")
+autoplay = "default"
+frame_progress = 0.961318
+
+[node name="killzone" parent="." instance=ExtResource("2_2rgji")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+shape = SubResource("CircleShape2D_vkn3v")
